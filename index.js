@@ -9,7 +9,11 @@ const invokeAction = async ({action, id, name, email, phone}) => {
 
             case 'getById':
                 const oneContact = await contacts.getContactById(id);
-                return console.table(oneContact)
+                return console.table(oneContact);
+
+                case 'add':
+                    const newcontacts = await contacts.addContact(name, email, phone);
+                    return console.table(newcontacts);
 
     }
 } 
