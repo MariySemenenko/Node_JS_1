@@ -1,14 +1,15 @@
 const contacts = require("./contacts.js");
 
+
 const invokeAction = async ({action, id, name, email, phone}) => {
     switch (action) {
         case 'read':
-            const allContacts = await contacts.getAll();
-            return console.log(allContacts);
+            const allContacts = await contacts.listContacts();
+            return console.table(allContacts);
 
             case 'getById':
-                const oneContact = await contacts.getById(id);
-                return console.log(oneContact)
+                const oneContact = await contacts.getContactById(id);
+                return console.table(oneContact)
 
     }
 } 
